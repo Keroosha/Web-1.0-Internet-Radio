@@ -2,9 +2,8 @@
 
 %include "secrets.liq"
 
-fallbackImage = mksafe(single("./fallback/error.png"))
-videoPlaylist = mksafe(playlist(mode="randomize", "./content/"))
-currentPlaylist = fallback([videoPlaylist, fallbackImage])
+# fallbackImage = mksafe(single("./fallback/error.png"))
+videoPlaylist = mksafe(playlist(reload=600, mode="randomize", "./content/"))
 
 enc = %ffmpeg(
   format="flv",

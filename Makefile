@@ -7,7 +7,7 @@ radio-build:
 
 .PHONY: radio-run
 radio-run:
-	docker run -it -d -v "./content:/app/content" -v "./fallback:/app/fallback" web10-radio:latest
+	docker run -it -d -v "./content:/app/content" -v "./fallback:/app/fallback" --restart=always web10-radio:latest
 
 .PHONY: ytdlp-build
 ytdlp-build:
@@ -15,5 +15,5 @@ ytdlp-build:
 
 .PHONY: ytdlp-load
 ytdlp-load:
-	docker run -it -v "./content:/ytdlp/content" -v "./content/content.txt:/ytdlp/content.txt" web10-ytdlp:latest
+	docker run -it -v "./content:/ytdlp/content" -v "./content.txt:/ytdlp/content.txt" web10-ytdlp:latest
 	sudo chown -R ${USER} content
